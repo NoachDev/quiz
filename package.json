@@ -1,0 +1,26 @@
+{
+  "name": "qstnry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react-dom": "^18.0.6",
+    "bootstrap": "^5.2.1",
+    "next": "^12.3.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.18",
+    "@types/react": "^18.0.20",
+    "typescript": "4.8.3"
+  }
+}
