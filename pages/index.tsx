@@ -1,19 +1,20 @@
 import React from "react"
-import Layout_ask from "../layouts/home"
+import Layout_home from "../layouts/home"
 import Head from 'next/head'
-import 'bootstrap/dist/css/bootstrap.css'
+import Page_ask from "../components/page_ask";
 
 function Home(){
+
     return (
-    <>
+    <div>
         <Head>
             <title>Questions</title>
         </Head>
 
-        <Layout_ask>
-
-        </Layout_ask>
-    </>
+        <Layout_home>
+            {/* <Page_ask/> */}
+        </Layout_home>
+    </div>
     )
 }
 
