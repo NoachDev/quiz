@@ -40,29 +40,29 @@ function Layout_home({ children }){
   }
   
   return<React.Fragment>
-      <Container>
-        <div style={{"height" : "3em"}}>
+    <Container>
+      <div style={{"height" : "3em"}}>
 
-          <Nav className="d-flex h-100 justify-content-center align-items-center">
+        <Nav className="d-flex h-100 justify-content-center align-items-center">
 
-            <Nav.Link style={{color:"inherit"}} href="/DashBoard">Dashboard</Nav.Link>
-            <Nav.Link style={{color:"inherit"}} href="/">Home</Nav.Link>
+          <Nav.Link style={{color:"inherit"}} href="/DashBoard">Dashboard</Nav.Link>
+          <Nav.Link style={{color:"inherit"}} href="/">Home</Nav.Link>
 
-            <Simple_drop>
-              <Dropdown.Toggle className="btn" variant="" id="drop-tgl">
-                Themes
-              </Dropdown.Toggle>
+          <Simple_drop>
+            <Dropdown.Toggle className="btn" variant="" id="drop-tgl">
+              Themes
+            </Dropdown.Toggle>
 
-              <Dropdown.Menu id="drop-mn">
-                <Dropdown.Item onClick={k => change_theme("light")}>Light Theme</Dropdown.Item>
-                <Dropdown.Divider className="simple-dv"/>
-                <Dropdown.Item onClick={k => change_theme("dark")}>Dark Theme</Dropdown.Item>
-              </Dropdown.Menu>
-            </Simple_drop>
-          </Nav>
-        </div>
+            <Dropdown.Menu id="drop-mn">
+              <Dropdown.Item onClick={k => change_theme("light")}>Light Theme</Dropdown.Item>
+              <Dropdown.Divider className="simple-dv"/>
+              <Dropdown.Item onClick={k => change_theme("dark")}>Dark Theme</Dropdown.Item>
+            </Dropdown.Menu>
+          </Simple_drop>
+        </Nav>
+      </div>
 
-        {children}
+      {children}
 
     </Container>
 
