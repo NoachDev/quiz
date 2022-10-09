@@ -1,4 +1,5 @@
-import { getSession } from "next-auth/react"
+import { getSession, useSession } from "next-auth/react"
+import Layout_DashBoard from "../layouts/DashBoard"
 
 export async function getServerSideProps(ctx) {
   const session = await getSession(ctx)
@@ -14,13 +15,18 @@ export async function getServerSideProps(ctx) {
 
   return {
     props: {
-      has_login: "test gsp",
     },
   }
 }
 
-function IndexPage({ has_login }) {
-  return ( <>{has_login}</> )
+function IndexPage() {
+  const session = useSession()
+
+  if (!session){
+    return (<>Loading...</>)
+  }
+  
+  return <Layout_DashBoard></Layout_DashBoard>
 }
 
 export default IndexPage
