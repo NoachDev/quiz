@@ -4,6 +4,7 @@ import { SSRProvider } from 'react-bootstrap'
 import { SessionProvider } from "next-auth/react"
 
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const GlobalStyle = createGlobalStyle`
   body {
