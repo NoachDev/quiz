@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import Email from "next-auth/providers/email"
 
 export const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "credentials",

@@ -1,11 +1,13 @@
 import Layout_home                  from "../layouts/home"
-import { getSession, signIn }       from "next-auth/react"
+import { signIn }                   from "next-auth/react"
+import { unstable_getServerSession }from "next-auth/next"
+import { authOptions }              from "../pages/api/auth/[...nextauth]"
 import React, { useState }          from "react";
 import { Form, Button, Container }  from "react-bootstrap"
 import { useRouter }                from "next/router";
 
 export async function getServerSideProps(ctx) {
-  const session = await getSession(ctx)
+  const session = await unstable_getServerSession(ctx.req, ctx.res, authOptions)
 
   if (session){
     return {
