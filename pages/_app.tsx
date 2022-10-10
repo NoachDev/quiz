@@ -21,13 +21,13 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
     dark: {
       bg            : "#202020",
       fg            : "#ffffff",
-      comlement     : "#303030",
+      complement     : "#303030",
     },
     
     light:{
       bg            : "#ffffff",
       fg            : "#121212",
-      comlement     : "#ffffff",
+      complement     : "#efefef",
       
     }
   }
