@@ -12,7 +12,7 @@ const Simple_drop = styled(Dropdown)`
   }
   
   & > #drop-mn{
-    background: ${props => props.theme.comlement}
+    background: ${props => props.theme.complement}
   }
   
   & > #drop-mn * {
