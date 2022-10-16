@@ -2,25 +2,25 @@ import { MongoClient } from "mongodb"
 import { getSession } from "next-auth/react"
 
 function getNames(DataBase){
-  return DataBase.collection("collection_test").findOne({"names" : {"$exists": true}},)
+  return DataBase.findOne({"names" : {"$exists": true}},)
 }
 
-function getQuestions(DataBase){
-  return {}
+function getQuestions(DataBase, index){
+  return DataBase.findOne({[index] : {"$exists": true}},)
 }
 
-async function ConnectDb(parameters : any){
+async function ConnectDb(parameters : Array<string>){
   const client  = await MongoClient.connect(process.env.MONGODB_URI)
-  const DataBase = client.db(process.env.MONGO_DABS)
+  const DataBase = client.db(process.env.MONGO_DABS).collection("collection_test")
 
-  let Data : object
+  let Data : Object | Array<Array<string>>
 
-  if (parameters.lenght > 0){
-    Data = {"test" : "test"}
+  if (parameters.length > 0){
+    Data = Object(await getQuestions(DataBase, parameters[0]))[parameters[0]]
   }
   
   else{
-    Data = await getNames(DataBase)
+    Data = Object(await getNames(DataBase))["names"]
   }
   
   client.close()
@@ -33,12 +33,15 @@ export default async function handler(req , res){
   const session = getSession();
   
   if (session){
+    const query : Array<string> = Array.from(Object.keys(req.query))
     
-    res.status(200).json(Object(await ConnectDb(req.query))["names"])
+    res.status(200).json(await ConnectDb(query))
   }
   
   else{
-    res.status(511).json()
+    console.log("error");
+    
+    res.status(511).json({})
   }
 
   
