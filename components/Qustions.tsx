@@ -20,7 +20,7 @@ const Card_Base = styled.div`
   
 `
 
-const App_node  = styled.div`
+const Add_node  = styled.div`
   height        : 8em     ;
   width         : auto    ;
   
@@ -80,6 +80,7 @@ function Card_Node({ children }){
   </div>
   )
 }
+
 function Quest({id, index}){
   const [elements, setelements] = React.useState([])
   
@@ -106,13 +107,14 @@ function Quest({id, index}){
 
       })
       
-      setelements(cards.concat(<App_node><i className="bi bi-node-plus"></i></App_node>))
+      setelements(cards.concat(<Add_node key="addnode"><i className="bi bi-node-plus"></i></Add_node>))
     })
 
   }, [index])
   
   return (<Row 
     id = {id}
+    key = "rowcards"
     style={{paddingLeft : "0.5em", paddingTop : "0.5em", margin : "0px", justifyContent: "start"}}
     >
     {elements}
@@ -130,7 +132,7 @@ function Quest({id, index}){
       <p>test</p>
     </Card_Node>
     
-    <App_node><i className="bi bi-node-plus"></i></App_node> */}
+    <Add_node><i className="bi bi-node-plus"></i></Add_node> */}
 
     <div className="h-100">
     </div>
