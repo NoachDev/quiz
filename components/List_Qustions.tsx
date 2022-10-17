@@ -9,6 +9,8 @@ const Element_value = styled(ToggleButton)`
   flex-direction  : row     ;
   align-items     : center  ;
   margin-bottom   : 0.2em   ;
+  font-size       : 14px    ;
+  color           : ${props => props.theme.fg};
 
   #text{
     width         : 100%    ;
@@ -37,15 +39,13 @@ function List_Qst({id, setindex}) {
           <i className="bi bi-chevron-right d-flex h-100" style={{alignItems: "center", marginRight: "0.5em"}}></i>
         </Element_value>
 
-        const valuelist : any = Array.from(new Set())
-        
-        console.log(name);
+        // console.log(name);
         list.push(element)
       }
 
       setquest(list)
     })
-  }, [])
+  }, [0])
 
   return (
       <ToggleButtonGroup type="radio" name="options" defaultValue={0} id={id}>
