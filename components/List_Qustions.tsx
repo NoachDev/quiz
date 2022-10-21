@@ -23,25 +23,28 @@ function List_Qst({id, setindex}) {
   const [listquest, setquest] = React.useState([])
 
   React.useEffect(() => {
-    fetch("http://localhost:3000/api/mongodb", {
+    fetch("http://localhost:3000/api/MongoDb/names", {
       method : "GET",
       headers: {
         'content-type': 'application/json'
       },
     })
     .then(res => res.json()).then( k => {
-      const list = []
+      // console.log(k);
       
-      for (const name in k){
-        const index = k[name];
-        const element = <Element_value key={index} id={`tbg-radio-${index}`} value={index} variant="" onChange={k => setindex(k.target.value)}>
+      const list = []
+
+      k.forEach((name, index) => {
+        if (index == 0){
+          setindex(name)
+        }
+        const element = <Element_value key={index} id={`tbg-radio-${index}`} value={name} variant="" onChange={k => setindex(k.target.value)}>
           <p id="text">{name}</p>
           <i className="bi bi-chevron-right d-flex h-100" style={{alignItems: "center", marginRight: "0.5em"}}></i>
         </Element_value>
 
-        // console.log(name);
         list.push(element)
-      }
+      });
 
       setquest(list)
     })
