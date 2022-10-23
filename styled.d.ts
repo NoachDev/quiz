@@ -5,6 +5,8 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     bg        : string
     fg        : string
-    comlement : string
+    complement: string
+    shadow    : string
+    box_shadow: string
   }
 }
