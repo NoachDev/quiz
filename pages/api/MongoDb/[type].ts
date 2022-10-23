@@ -15,11 +15,13 @@ export default async function handler(req, res){
     }
     
     else if (method == "POST"){
-      Data = await addDbValues(req.query, req.body)
+      await addDbValues(req.query, req.body)
+      Data = {}
     }
     
     else if (method == "DELETE"){
-      Data = await rmDbValues(req.query)
+      await rmDbValues(req.query)
+      Data = {}
       
     }
     
@@ -33,8 +35,8 @@ export default async function handler(req, res){
     res.status(200).json(Data)
   }
   
-  catch{
-    console.log("Error");
+  catch (error){
+    console.log(error.message);
     
     res.status(511).json({})
   }
