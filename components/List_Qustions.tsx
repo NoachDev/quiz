@@ -19,7 +19,7 @@ const Element_value = styled(ToggleButton)`
   }
 
 `
-function List_Qst({id, setindex}) {
+function List_Qst({id, setindex, Qst_add, setQst_add, Qst_rmv, setQst_rmv}) {
   const [listquest, setquest] = React.useState([])
 
   React.useEffect(() => {
@@ -35,9 +35,7 @@ function List_Qst({id, setindex}) {
       const list = []
 
       k.forEach((name, index) => {
-        if (index == 0){
-          setindex(name)
-        }
+        
         const element = <Element_value key={index} id={`tbg-radio-${index}`} value={name} variant="" onChange={k => setindex(k.target.value)}>
           <p id="text">{name}</p>
           <i className="bi bi-chevron-right d-flex h-100" style={{alignItems: "center", marginRight: "0.5em"}}></i>
@@ -48,10 +46,36 @@ function List_Qst({id, setindex}) {
 
       setquest(list)
     })
+
+    
   }, [0])
+  
+  React.useEffect(() => {
+    if (Qst_add.length > 0){
+      const index = listquest.length
+
+      setquest(listquest.concat(
+        <Element_value key={index} id={`tbg-radio-${index}`} value={Qst_add} variant="" onChange={k => setindex(k.target.value)}>
+          <p id="text">{Qst_add}</p>
+          <i className="bi bi-chevron-right d-flex h-100" style={{alignItems: "center", marginRight: "0.5em"}}></i>
+        </Element_value>
+      ))
+      
+      setQst_add("")
+    }
+  }, [Qst_add])
+
+  React.useEffect(() => {
+    if (Qst_rmv.length > 0){
+      setquest(listquest.filter(k => k.props.value != Qst_rmv))
+      // listquest.filter(k => k.props.value != Qst_rmv)
+      
+      setQst_rmv("")
+    }
+  }, [Qst_rmv])
 
   return (
-      <ToggleButtonGroup type="radio" name="options" defaultValue={0} id={id}>
+      <ToggleButtonGroup type="radio" name="options" id={id}>
         {listquest}
       </ToggleButtonGroup>
   )}
