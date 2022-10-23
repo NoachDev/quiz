@@ -25,7 +25,6 @@ const Simple_drop = styled(Dropdown)`
 
   .btn{
     padding : 0px
-
   }
 
 `
@@ -40,7 +39,7 @@ function Theme_drop(){
 
   return (
 
-    <Simple_drop>
+    <Simple_drop className="nav-link">
       <Simple_drop.Toggle id="drop-tgl">
         Themes
       </Simple_drop.Toggle>

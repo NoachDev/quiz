@@ -6,5 +6,7 @@ declare module 'styled-components' {
     bg        : string
     fg        : string
     complement: string
+    shadow    : string
+    box_shadow: string
   }
 }

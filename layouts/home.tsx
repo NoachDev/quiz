@@ -12,9 +12,7 @@ function Layout_home({ children }){
 
           <Nav.Link style={{color:"inherit"}} href="/DashBoard">Dashboard</Nav.Link>
           <Nav.Link style={{color:"inherit"}} href="/">Home</Nav.Link>
-          <Nav.Link style={{color:"inherit"}}>
-            <Theme_drop/>
-          </Nav.Link>
+          <Theme_drop/>
           
         </Nav>
       </div>
