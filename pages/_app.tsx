@@ -21,13 +21,17 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
     dark: {
       bg            : "#202020",
       fg            : "#ffffff",
-      complement     : "#303030",
+      complement    : "#303030",
+      shadow        : "rgba(255, 255, 255, 0.15)",
+      box_shadow    : "rgba(255, 255, 255, 0.3)"
     },
     
     light:{
       bg            : "#ffffff",
       fg            : "#121212",
       complement     : "#efefef",
+      shadow        : "rgba(0, 0, 0, 0.15)",
+      box_shadow    : "rgba(0, 0, 0, 0.3)"
       
     }
   }
