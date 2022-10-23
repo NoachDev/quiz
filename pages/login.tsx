@@ -29,16 +29,20 @@ function Login(){
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+    
     else{
       const [ Name, Passwd ] = [form.validationCustom01.value, form.validationCustom02.value ]
       
       event.preventDefault()
-      signIn("credentials", {redirect : false, username : Name, password: Passwd })
-      router.push("/DashBoard")
+
+      signIn("credentials", {redirect : false, email : Name, password: Passwd }).then(
+        k => router.push("/DashBoard")
+      )
     }
     
     setValidated(true);
