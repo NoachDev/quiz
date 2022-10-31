@@ -18,9 +18,7 @@ export default async function handler(req, res){
     if (method == "GET"){
       Data = await getDbValues(req.query)
     }
-
-
-    if (session.user.UserRole == "Admin"){
+    else if (session.user.UserRole == "Admin"){
       if (method == "POST"){
         await addDbValues(req.query, req.body)
         Data = {}

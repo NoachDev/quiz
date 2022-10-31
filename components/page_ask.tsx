@@ -23,8 +23,8 @@ class Place_ask extends Component<any>{
 
     return (
         <React.Fragment>
-          <Row className="h-100 justify-content-center align-items-center">
-            <div>
+          <Row className="h-100 w-100 justify-content-center align-items-center" style={{margin : "0px"}}>
+            <div style={{padding : "0px"}}>
               {elm_askor}
             </div>
           </Row>
@@ -51,12 +51,21 @@ class Finish extends Component{
   }
 }
 
-function Page_ask(){
+function Page_ask({asks} : {asks : object}){
   const qst_task  = ["ask for anything",  "ask for test or"]
   const qst_task2 = ["ask for test ask_2", "ask for test ask_2", "ask for change size"]
 
-  const questions = [<Place_ask key = "test" ask = {qst_task}/>, <Place_ask key = "test_2" ask = {qst_task2}/>, <Finish/>]
-  const value_app = 100 / (questions.length-1)
+  const questions = []
+
+  for (const index in asks){
+    questions.push(
+      <Place_ask key = {index} ask = {asks[index]}/>
+    )
+  }
+
+  const value_app = 100 / (questions.length)
+  
+  questions.push(<Finish/>)
 
   const [index, setIndex]           = React.useState(0);
   const [progress   , set_progress] = React.useState(value_app * index)
@@ -91,15 +100,19 @@ function Page_ask(){
     set_progress(index * value_app)
   })
 
+  
+
+
+
   return (
     
-    <>
+  <div>
     <ProgressBar now={progress} />
 
-    <Row className="d-flex" style={{"height" : "85vh"}}>
+    <Row className="d-flex" style={{"height" : "85vh", width : "100%", margin : "0px"}}>
 
-      <Carousel className="d-flex" activeIndex={index} interval={null} indicators={false} controls={false} style={{"height" : "90%"}}>
-        {questions.map((k, index) => <Carousel.Item className="h-100" key={index}>{k}</Carousel.Item>)}
+      <Carousel className="d-flex" activeIndex={index} interval={null} indicators={false} controls={false} style={{"height" : "90%", width : "100%"}}>
+        {questions.map((k, index) => <Carousel.Item className="h-100 w-100" key={index}>{k}</Carousel.Item>)}
       </Carousel>
 
       <Stack direction="horizontal" gap={3} className="d-flex align-self-end justify-content-end">
@@ -109,7 +122,7 @@ function Page_ask(){
       </Stack>
 
     </Row>
-  </>
+  </div>
   )
 }
 

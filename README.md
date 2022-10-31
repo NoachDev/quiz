@@ -13,5 +13,5 @@ DataBase  --> mongodb
 # Login user guest 
   this login no has hableted to append or remove (lines, cards or questions) only read
 
-  email   : guestOnlyRead
-  password: guestOnlyRead@test.com
+  AUTH_USER       = testemail@example.com
+  AUTH_PASS       = mypassword

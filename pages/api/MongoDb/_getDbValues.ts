@@ -1,5 +1,9 @@
 import ConnectDb from "./_ConnectDb"
 
+async function getAll(DataBase){
+  return DataBase.find({name : {"$exists" : true}}).toArray()
+}
+
 function getNames(DataBase){
   return DataBase.findOne({"names" : {"$exists": true}},)
 }
@@ -29,6 +33,11 @@ export default async function getDbValues(query){
     delete Data["_id"]
 
     return Data
+  }
+  else if (type_get == "all"){
+    const Data : Array<object> = await ConnectDb(getAll)
+
+    return Data.map( (a : object) => a["name"])
   }
   
 }

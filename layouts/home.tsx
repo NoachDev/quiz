@@ -6,7 +6,7 @@ function Layout_home({ children }){
   
   return<React.Fragment>
     <Container>
-      <div style={{"height" : "2em"}}>
+      <div style={{"height" : "2em", marginBottom : "0.5em"}}>
 
         <Nav className="d-flex h-100 justify-content-center align-items-center">
 
@@ -17,9 +17,9 @@ function Layout_home({ children }){
         </Nav>
       </div>
 
-      {children}
-
     </Container>
+
+    {children}
 
   </React.Fragment>
 }
